@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+}
+
+/* Cards com sombra suave, como nas telas de referência */
+.ant-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+/* Cards internos (aninhados) sem sombra dupla */
+.ant-card .ant-card {
+  box-shadow: none;
+}
+/* Colapsáveis e itens de tabela mais suaves */
+.ant-collapse {
+  border-radius: 12px;
+}
+/* Cabeçalho de card um pouco mais destacado */
+.ant-card-head-title {
+  font-weight: 600;
+  color: #263072;
+}
+/* Títulos Montserrat com peso mais firme */
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography,
+h4.ant-typography,
+h5.ant-typography {
+  font-weight: 600;
+}
