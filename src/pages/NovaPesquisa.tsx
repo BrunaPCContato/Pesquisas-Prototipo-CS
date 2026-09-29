@@ -279,6 +279,7 @@ function RevisaoStep({
   const tipoLancamento = Form.useWatch('tipoLancamento', launchForm)
   const frequencia = Form.useWatch('frequencia', launchForm) as string | undefined
   const diasAberta = Form.useWatch('diasAberta', launchForm) as number | undefined
+  const dataTermino = Form.useWatch('dataTermino', launchForm)
   const totalPerguntas = dimensions.reduce((acc, d) => acc + d.questions.length, 0)
   const publico = (config?.publico as string[] | undefined) ?? []
 
@@ -435,6 +436,7 @@ function RevisaoStep({
             <Alert
               type="info"
               showIcon
+              style={{ marginBottom: 16 }}
               message={
                 frequencia && diasAberta
                   ? `A pesquisa será reaberta automaticamente na frequência ${freqLabel(
@@ -443,6 +445,30 @@ function RevisaoStep({
                   : 'Defina a frequência e o período (dias) para ver o resumo da recorrência.'
               }
             />
+
+            {/* Término por data final (opcional) */}
+            <Form.Item
+              name="dataTermino"
+              label={
+                <Space size={6}>
+                  Data de término
+                  <Tooltip title="Data final da recorrência. Após ela, a pesquisa não abre novos ciclos.">
+                    <Question style={{ color: brand.textMuted }} />
+                  </Tooltip>
+                </Space>
+              }
+            >
+              <DatePicker placeholder="Selecionar data" format="DD/MM/YYYY" style={{ width: 260 }} />
+            </Form.Item>
+            {/* AC_05 — aviso quando há data de término definida */}
+            {dataTermino && (
+              <Alert
+                type="warning"
+                showIcon
+                icon={<WarningCircle weight="fill" style={{ color: brand.warning }} />}
+                message="Caso a data de término coincida com um ciclo em andamento, este ciclo será interrompido na data definida."
+              />
+            )}
           </>
         )}
       </div>

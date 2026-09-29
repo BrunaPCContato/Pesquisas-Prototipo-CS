@@ -7,6 +7,7 @@ import {
   House,
   ListChecks,
   ChartPie,
+  Target,
   Question,
   Gear,
   User,
@@ -26,6 +27,7 @@ const menuItems: MenuProps['items'] = [
   { key: 'home', icon: <House />, label: 'Home' },
   { key: 'pesquisas', icon: <ListChecks />, label: 'Pesquisas' },
   { key: 'estatisticas', icon: <ChartPie />, label: 'Estatísticas' },
+  { key: 'planos', icon: <Target />, label: 'Planos de ação' },
   { type: 'divider' },
   {
     key: 'suporte',
@@ -43,6 +45,7 @@ const routeByKey: Record<string, string> = {
   home: '/',
   pesquisas: '/pesquisas',
   estatisticas: '/estatisticas',
+  planos: '/planos',
 }
 
 export default function AppLayout({ children }: { children: ReactNode }) {
@@ -96,13 +99,16 @@ export default function AppLayout({ children }: { children: ReactNode }) {
     }
   }
 
-  const selectedKey = location.pathname.startsWith('/estatisticas')
+  const path = location.pathname
+  const selectedKey = path.startsWith('/estatisticas')
     ? 'estatisticas'
-    : location.pathname.startsWith('/pesquisa')
-      ? 'pesquisas'
-      : location.pathname === '/'
-        ? 'home'
-        : ''
+    : path.startsWith('/plano')
+      ? 'planos'
+      : path.startsWith('/pesquisa')
+        ? 'pesquisas'
+        : path === '/'
+          ? 'home'
+          : ''
 
   return (
     <Layout style={{ minHeight: '100vh' }}>

@@ -7,6 +7,8 @@ import NovaPesquisa from './pages/NovaPesquisa'
 import RascunhoPesquisa from './pages/RascunhoPesquisa'
 import Estatisticas from './pages/Estatisticas'
 import SurveyDetail from './pages/SurveyDetail'
+import PlanosAcao from './pages/PlanosAcao'
+import PlanoAcaoDetalhe from './pages/PlanoAcaoDetalhe'
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
         <Route path="/pesquisas/rascunho/:id" element={<RascunhoPesquisa />} />
         <Route path="/estatisticas" element={<Estatisticas />} />
         <Route path="/pesquisa/:id" element={<SurveyDetail />} />
+        <Route path="/planos" element={<PlanosAcao />} />
+        <Route path="/plano/:id" element={<PlanoAcaoDetalhe />} />
       </Routes>
     </AppLayout>
   )

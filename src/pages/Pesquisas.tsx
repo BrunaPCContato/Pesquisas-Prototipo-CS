@@ -218,7 +218,13 @@ export default function Pesquisas() {
             shape="circle"
             icon={<ChartBar />}
             title="Ver estatísticas"
-            onClick={() => navigate(`/pesquisa/${row.key}?tipo=${row.tipo}`)}
+            onClick={() =>
+              navigate(
+                `/pesquisa/${row.key}?tipo=${row.tipo}&status=${
+                  row.status === 'Ativa' ? 'andamento' : 'encerrada'
+                }`,
+              )
+            }
           />
           <Button
             shape="circle"

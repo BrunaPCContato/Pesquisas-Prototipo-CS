@@ -23,6 +23,7 @@ import {
 } from '@phosphor-icons/react'
 import { brand } from '../theme'
 import TasksBlock from '../components/TasksBlock'
+import PlanoTasksBlock from '../components/PlanoTasksBlock'
 import EmpresaSelector from '../components/EmpresaSelector'
 
 const { Title, Text } = Typography
@@ -164,6 +165,11 @@ export default function Home() {
       {/* Tarefas */}
       <div style={{ marginTop: 24 }}>
         <TasksBlock />
+      </div>
+
+      {/* Minhas tarefas em planos de ação */}
+      <div style={{ marginTop: 24 }}>
+        <PlanoTasksBlock />
       </div>
 
       {/* Pontos de atenção */}
